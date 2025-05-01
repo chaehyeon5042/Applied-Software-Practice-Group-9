@@ -1,6 +1,6 @@
 ﻿namespace AutoSummarizer
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// 필수 디자이너 변수입니다.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.AutoSumIcon = new System.Windows.Forms.PictureBox();
             this.btn_FileUpload = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -68,9 +68,9 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(230, 13);
+            this.label1.Location = new System.Drawing.Point(309, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(291, 45);
+            this.label1.Size = new System.Drawing.Size(300, 46);
             this.label1.TabIndex = 2;
             this.label1.Text = "Auto Summarizer\r\n";
             // 
@@ -92,7 +92,7 @@
             this.btn_Gen.UseVisualStyleBackColor = true;
             this.btn_Gen.Click += new System.EventHandler(this.btn_Gen_Click);
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -102,8 +102,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_FileUpload);
             this.Controls.Add(this.AutoSumIcon);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form1";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "MainForm";
             this.Text = "Auto Summarizer";
             ((System.ComponentModel.ISupportInitialize)(this.AutoSumIcon)).EndInit();
             this.ResumeLayout(false);

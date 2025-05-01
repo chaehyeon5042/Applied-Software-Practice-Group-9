@@ -1,6 +1,6 @@
 ﻿namespace AutoSummarizer
 {
-    partial class Form2
+    partial class PreviewForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PreviewForm));
             this.grpBox_Pre = new System.Windows.Forms.GroupBox();
-            this.rdoPresentation = new System.Windows.Forms.RadioButton();
-            this.rdoStudy = new System.Windows.Forms.RadioButton();
-            this.rdoReport = new System.Windows.Forms.RadioButton();
-            this.picBox_Pre = new System.Windows.Forms.PictureBox();
-            this.picBox_Study = new System.Windows.Forms.PictureBox();
             this.picBox_Report = new System.Windows.Forms.PictureBox();
+            this.picBox_Study = new System.Windows.Forms.PictureBox();
+            this.picBox_Pre = new System.Windows.Forms.PictureBox();
+            this.rdoReport = new System.Windows.Forms.RadioButton();
+            this.rdoStudy = new System.Windows.Forms.RadioButton();
+            this.rdoPresentation = new System.Windows.Forms.RadioButton();
             this.btn_Save = new System.Windows.Forms.Button();
             this.btn_Back = new System.Windows.Forms.Button();
             this.btn_Exit = new System.Windows.Forms.Button();
             this.grpBox_Pre.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_Pre)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_Study)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Report)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Study)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Pre)).BeginInit();
             this.SuspendLayout();
             // 
             // grpBox_Pre
@@ -60,29 +60,29 @@
             this.grpBox_Pre.TabStop = false;
             this.grpBox_Pre.Text = "Preview";
             // 
-            // rdoPresentation
+            // picBox_Report
             // 
-            this.rdoPresentation.AutoSize = true;
-            this.rdoPresentation.Location = new System.Drawing.Point(21, 317);
-            this.rdoPresentation.Name = "rdoPresentation";
-            this.rdoPresentation.Size = new System.Drawing.Size(209, 25);
-            this.rdoPresentation.TabIndex = 0;
-            this.rdoPresentation.TabStop = true;
-            this.rdoPresentation.Text = "발표용(Presentaion)";
-            this.rdoPresentation.UseVisualStyleBackColor = true;
-            this.rdoPresentation.CheckedChanged += new System.EventHandler(this.rdoPresentation_CheckedChanged);
+            this.picBox_Report.Location = new System.Drawing.Point(540, 40);
+            this.picBox_Report.Name = "picBox_Report";
+            this.picBox_Report.Size = new System.Drawing.Size(209, 271);
+            this.picBox_Report.TabIndex = 5;
+            this.picBox_Report.TabStop = false;
             // 
-            // rdoStudy
+            // picBox_Study
             // 
-            this.rdoStudy.AutoSize = true;
-            this.rdoStudy.Location = new System.Drawing.Point(309, 317);
-            this.rdoStudy.Name = "rdoStudy";
-            this.rdoStudy.Size = new System.Drawing.Size(159, 25);
-            this.rdoStudy.TabIndex = 1;
-            this.rdoStudy.TabStop = true;
-            this.rdoStudy.Text = "학습용(Study)";
-            this.rdoStudy.UseVisualStyleBackColor = true;
-            this.rdoStudy.CheckedChanged += new System.EventHandler(this.rdoStudy_CheckedChanged);
+            this.picBox_Study.Location = new System.Drawing.Point(280, 38);
+            this.picBox_Study.Name = "picBox_Study";
+            this.picBox_Study.Size = new System.Drawing.Size(209, 273);
+            this.picBox_Study.TabIndex = 4;
+            this.picBox_Study.TabStop = false;
+            // 
+            // picBox_Pre
+            // 
+            this.picBox_Pre.Location = new System.Drawing.Point(21, 37);
+            this.picBox_Pre.Name = "picBox_Pre";
+            this.picBox_Pre.Size = new System.Drawing.Size(209, 274);
+            this.picBox_Pre.TabIndex = 3;
+            this.picBox_Pre.TabStop = false;
             // 
             // rdoReport
             // 
@@ -94,31 +94,31 @@
             this.rdoReport.TabStop = true;
             this.rdoReport.Text = "보고서(Report)";
             this.rdoReport.UseVisualStyleBackColor = true;
-            this.rdoReport.CheckedChanged += new System.EventHandler(this.rdoReport_CheckedChanged);
+            this.rdoReport.CheckedChanged += new System.EventHandler(this.rdoBtn_CheckedChanged);
             // 
-            // picBox_Pre
+            // rdoStudy
             // 
-            this.picBox_Pre.Location = new System.Drawing.Point(21, 37);
-            this.picBox_Pre.Name = "picBox_Pre";
-            this.picBox_Pre.Size = new System.Drawing.Size(209, 274);
-            this.picBox_Pre.TabIndex = 3;
-            this.picBox_Pre.TabStop = false;
+            this.rdoStudy.AutoSize = true;
+            this.rdoStudy.Location = new System.Drawing.Point(309, 317);
+            this.rdoStudy.Name = "rdoStudy";
+            this.rdoStudy.Size = new System.Drawing.Size(159, 25);
+            this.rdoStudy.TabIndex = 1;
+            this.rdoStudy.TabStop = true;
+            this.rdoStudy.Text = "학습용(Study)";
+            this.rdoStudy.UseVisualStyleBackColor = true;
+            this.rdoStudy.CheckedChanged += new System.EventHandler(this.rdoBtn_CheckedChanged);
             // 
-            // picBox_Study
+            // rdoPresentation
             // 
-            this.picBox_Study.Location = new System.Drawing.Point(280, 38);
-            this.picBox_Study.Name = "picBox_Study";
-            this.picBox_Study.Size = new System.Drawing.Size(209, 273);
-            this.picBox_Study.TabIndex = 4;
-            this.picBox_Study.TabStop = false;
-            // 
-            // picBox_Report
-            // 
-            this.picBox_Report.Location = new System.Drawing.Point(540, 40);
-            this.picBox_Report.Name = "picBox_Report";
-            this.picBox_Report.Size = new System.Drawing.Size(209, 271);
-            this.picBox_Report.TabIndex = 5;
-            this.picBox_Report.TabStop = false;
+            this.rdoPresentation.AutoSize = true;
+            this.rdoPresentation.Location = new System.Drawing.Point(21, 317);
+            this.rdoPresentation.Name = "rdoPresentation";
+            this.rdoPresentation.Size = new System.Drawing.Size(209, 25);
+            this.rdoPresentation.TabIndex = 0;
+            this.rdoPresentation.TabStop = true;
+            this.rdoPresentation.Text = "발표용(Presentaion)";
+            this.rdoPresentation.UseVisualStyleBackColor = true;
+            this.rdoPresentation.CheckedChanged += new System.EventHandler(this.rdoBtn_CheckedChanged);
             // 
             // btn_Save
             // 
@@ -150,7 +150,7 @@
             this.btn_Exit.UseVisualStyleBackColor = true;
             this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
-            // Form2
+            // PreviewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -159,14 +159,17 @@
             this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.grpBox_Pre);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Form2";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "PreviewForm";
             this.Text = "Auto Summarizer";
             this.grpBox_Pre.ResumeLayout(false);
             this.grpBox_Pre.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_Pre)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox_Study)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Report)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Study)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox_Pre)).EndInit();
             this.ResumeLayout(false);
 
         }

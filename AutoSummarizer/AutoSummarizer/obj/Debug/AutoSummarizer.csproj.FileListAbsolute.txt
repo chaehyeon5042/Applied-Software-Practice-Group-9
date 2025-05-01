@@ -1,0 +1,11 @@
+C:\Develop\KWU\ASP_Repository\AutoSummarizer\AutoSummarizer\bin\Debug\AutoSummarizer.exe.config
+C:\Develop\KWU\ASP_Repository\AutoSummarizer\AutoSummarizer\bin\Debug\AutoSummarizer.exe
+C:\Develop\KWU\ASP_Repository\AutoSummarizer\AutoSummarizer\bin\Debug\AutoSummarizer.pdb
+C:\Develop\KWU\ASP_Repository\AutoSummarizer\AutoSummarizer\obj\Debug\AutoSummarizer.csproj.AssemblyReference.cache
+C:\Develop\KWU\ASP_Repository\AutoSummarizer\AutoSummarizer\obj\Debug\AutoSummarizer.MainForm.resources
+C:\Develop\KWU\ASP_Repository\AutoSummarizer\AutoSummarizer\obj\Debug\AutoSummarizer.PreviewForm.resources
+C:\Develop\KWU\ASP_Repository\AutoSummarizer\AutoSummarizer\obj\Debug\AutoSummarizer.Properties.Resources.resources
+C:\Develop\KWU\ASP_Repository\AutoSummarizer\AutoSummarizer\obj\Debug\AutoSummarizer.csproj.GenerateResource.cache
+C:\Develop\KWU\ASP_Repository\AutoSummarizer\AutoSummarizer\obj\Debug\AutoSummarizer.csproj.CoreCompileInputs.cache
+C:\Develop\KWU\ASP_Repository\AutoSummarizer\AutoSummarizer\obj\Debug\AutoSummarizer.exe
+C:\Develop\KWU\ASP_Repository\AutoSummarizer\AutoSummarizer\obj\Debug\AutoSummarizer.pdb
