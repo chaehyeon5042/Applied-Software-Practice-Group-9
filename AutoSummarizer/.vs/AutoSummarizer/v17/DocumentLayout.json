@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Develop\\KWU\\ASP_Repository\\AutoSummarizer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|c:\\develop\\kwu\\asp_repository\\autosummarizer\\autosummarizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|solutionrelative:autosummarizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|c:\\develop\\kwu\\asp_repository\\autosummarizer\\autosummarizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|solutionrelative:autosummarizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Develop\\KWU\\ASP_Repository\\AutoSummarizer\\AutoSummarizer\\Form1.cs",
+              "RelativeDocumentMoniker": "AutoSummarizer\\Form1.cs",
+              "ToolTip": "C:\\Develop\\KWU\\ASP_Repository\\AutoSummarizer\\AutoSummarizer\\Form1.cs",
+              "RelativeToolTip": "AutoSummarizer\\Form1.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAIA4wBoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T08:56:59.498Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "C:\\Develop\\KWU\\ASP_Repository\\AutoSummarizer\\AutoSummarizer\\Form1.cs",
+              "RelativeDocumentMoniker": "AutoSummarizer\\Form1.cs",
+              "ToolTip": "C:\\Develop\\KWU\\ASP_Repository\\AutoSummarizer\\AutoSummarizer\\Form1.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "AutoSummarizer\\Form1.cs [\uB514\uC790\uC778]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-01T08:15:25.483Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
