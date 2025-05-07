@@ -42,9 +42,10 @@
             // AutoSumIcon
             // 
             this.AutoSumIcon.Image = global::AutoSummarizer.Properties.Resources.AutoSummarizerIcon;
-            this.AutoSumIcon.Location = new System.Drawing.Point(13, 13);
+            this.AutoSumIcon.Location = new System.Drawing.Point(8, 7);
+            this.AutoSumIcon.Margin = new System.Windows.Forms.Padding(2);
             this.AutoSumIcon.Name = "AutoSumIcon";
-            this.AutoSumIcon.Size = new System.Drawing.Size(200, 200);
+            this.AutoSumIcon.Size = new System.Drawing.Size(127, 114);
             this.AutoSumIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.AutoSumIcon.TabIndex = 0;
             this.AutoSumIcon.TabStop = false;
@@ -52,9 +53,10 @@
             // btn_FileUpload
             // 
             this.btn_FileUpload.Font = new System.Drawing.Font("굴림", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.btn_FileUpload.Location = new System.Drawing.Point(520, 79);
+            this.btn_FileUpload.Location = new System.Drawing.Point(331, 45);
+            this.btn_FileUpload.Margin = new System.Windows.Forms.Padding(2);
             this.btn_FileUpload.Name = "btn_FileUpload";
-            this.btn_FileUpload.Size = new System.Drawing.Size(154, 38);
+            this.btn_FileUpload.Size = new System.Drawing.Size(98, 22);
             this.btn_FileUpload.TabIndex = 1;
             this.btn_FileUpload.Text = "파일 업로드";
             this.btn_FileUpload.UseVisualStyleBackColor = true;
@@ -68,25 +70,28 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14.14286F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(309, 13);
+            this.label1.Location = new System.Drawing.Point(197, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(300, 46);
+            this.label1.Size = new System.Drawing.Size(168, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "Auto Summarizer\r\n";
             // 
             // txt_FileName
             // 
-            this.txt_FileName.Location = new System.Drawing.Point(238, 81);
+            this.txt_FileName.Location = new System.Drawing.Point(151, 46);
+            this.txt_FileName.Margin = new System.Windows.Forms.Padding(2);
             this.txt_FileName.Name = "txt_FileName";
-            this.txt_FileName.Size = new System.Drawing.Size(276, 32);
+            this.txt_FileName.Size = new System.Drawing.Size(177, 21);
             this.txt_FileName.TabIndex = 3;
             // 
             // btn_Gen
             // 
             this.btn_Gen.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Gen.Location = new System.Drawing.Point(238, 137);
+            this.btn_Gen.Location = new System.Drawing.Point(151, 78);
+            this.btn_Gen.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Gen.Name = "btn_Gen";
-            this.btn_Gen.Size = new System.Drawing.Size(436, 76);
+            this.btn_Gen.Size = new System.Drawing.Size(278, 43);
             this.btn_Gen.TabIndex = 4;
             this.btn_Gen.Text = "Generate";
             this.btn_Gen.UseVisualStyleBackColor = true;
@@ -94,9 +99,9 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 227);
+            this.ClientSize = new System.Drawing.Size(445, 128);
             this.Controls.Add(this.btn_Gen);
             this.Controls.Add(this.txt_FileName);
             this.Controls.Add(this.label1);
@@ -104,6 +109,7 @@
             this.Controls.Add(this.AutoSumIcon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
