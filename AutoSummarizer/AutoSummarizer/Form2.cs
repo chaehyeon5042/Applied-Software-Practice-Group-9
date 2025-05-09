@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,13 +14,15 @@ namespace AutoSummarizer
 {
     public partial class PreviewForm : Form
     {
-        private string summarizedText; // 요약된 텍스트를 저장할 변수
+        private string summarizedFilePath; // 전달받은 요약 파일 경로 저장
+        private string summarizedText;     // 미리보기용 텍스트
 
-        // 생성자 수정: 요약된 텍스트를 파라미터로 받음
-        public PreviewForm(string summarizedText)
+        // 생성자 수정: 파일 경로를 파라미터로 받음
+        public PreviewForm(string summarizedFilePath, string summarizedText)
         {
             InitializeComponent();
-            this.summarizedText = summarizedText; // 요약된 텍스트 저장
+            this.summarizedFilePath = summarizedFilePath;
+            this.summarizedText = summarizedText;
         }
 
         // Text를 Image로 변환하는 static 클래스 -> pdf에서 추출한 텍스트를 이미지로 변환
@@ -103,7 +106,119 @@ namespace AutoSummarizer
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-            //Radio Button에서 선택된 파일로 파일명 자동 생성 및 폴더 자동 저장.
+            try
+            {
+                // 1. 전달받은 요약 파일 경로 사용
+                if (!File.Exists(summarizedFilePath))
+                {
+                    MessageBox.Show("요약된 파일이 존재하지 않습니다.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // 2. 과목명 추출 (라디오 버튼 기반)
+                string subjectName = "Report";
+                if (rdoPresentation.Checked) subjectName = "Presentation";
+                else if (rdoStudy.Checked) subjectName = "Study";
+
+                // 3. 원본 파일명 정보 추출
+                string originalName = Path.GetFileName(summarizedFilePath);
+                string nameWithoutExt = Path.GetFileNameWithoutExtension(originalName);
+                string extension = Path.GetExtension(originalName);
+
+                // 4. 날짜 추가
+                string date = DateTime.Now.ToString("yyyy-MM-dd");
+
+                // 5. 파일명 구성
+                string fileName = $"{subjectName}_{nameWithoutExt}_{date}{extension}";
+                string targetPath = "";
+
+                // 6. 저장 방식 선택
+                DialogResult choice = MessageBox.Show(
+                    "저장 방식을 선택하세요:\n\n예: 직접 저장 위치 및 파일명 지정\n아니오: 바탕화면에 과목명 폴더 자동 저장",
+                    "저장 옵션",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Question);
+
+                if (choice == DialogResult.Cancel) return;
+
+                string directoryPath = "";
+                if (choice == DialogResult.Yes)
+                {
+                    using (SaveFileDialog dialog = new SaveFileDialog())
+                    {
+                        dialog.Title = "요약 파일을 저장할 위치와 이름을 선택하세요.";
+                        dialog.Filter = "모든 파일 (*.*)|*.*";
+                        dialog.FileName = fileName;
+
+                        if (dialog.ShowDialog(this) == DialogResult.OK)
+                        {
+                            directoryPath = Path.GetDirectoryName(dialog.FileName);
+                            fileName = Path.GetFileName(dialog.FileName);
+                        }
+                        else return;
+                    }
+                }
+                else if (choice == DialogResult.No)
+                {
+                    string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                    directoryPath = Path.Combine(desktopPath, subjectName);
+                    Directory.CreateDirectory(directoryPath);
+                }
+
+                // 7. 최종 경로 결정
+                string fullPath = Path.Combine(directoryPath, fileName);
+
+                // 8. 파일 중복 여부 확인
+                if (File.Exists(fullPath))
+                {
+                    DialogResult overwriteChoice = MessageBox.Show(
+                        "같은 이름의 파일이 이미 존재합니다.\n덮어쓰시겠습니까?",
+                        "파일 중복 경고",
+                        MessageBoxButtons.YesNoCancel,
+                        MessageBoxIcon.Warning);
+
+                    if (overwriteChoice == DialogResult.No)
+                    {
+                        string newFileName = PromptForNewFileName(fileName);
+                        if (string.IsNullOrWhiteSpace(newFileName)) return;
+                        fullPath = Path.Combine(directoryPath, newFileName);
+                    }
+                    else if (overwriteChoice == DialogResult.Cancel)
+                    {
+                        return;
+                    }
+                }
+
+                // 9. 파일 복사
+                File.Copy(summarizedFilePath, fullPath, overwrite: true);
+                MessageBox.Show("요약 파일이 저장되었습니다:\n" + fullPath, "저장 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("저장 중 오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string PromptForNewFileName(string oldName)
+        {
+            using (Form prompt = new Form())
+            {
+                prompt.Width = 400;
+                prompt.Height = 150;
+                prompt.Text = "파일 이름 다시 입력";
+
+                Label textLabel = new Label() { Left = 20, Top = 20, Text = "새 파일 이름(.pdf 포함):", Width = 300 };
+                TextBox inputBox = new TextBox() { Left = 20, Top = 50, Width = 340, Text = oldName };
+
+                Button confirmation = new Button() { Text = "확인", Left = 270, Width = 90, Top = 80, DialogResult = DialogResult.OK };
+                prompt.AcceptButton = confirmation;
+
+                prompt.Controls.Add(textLabel);
+                prompt.Controls.Add(inputBox);
+                prompt.Controls.Add(confirmation);
+
+                return (prompt.ShowDialog() == DialogResult.OK) ? inputBox.Text : null;
+            }
         }
 
         private void btn_Back_Click(object sender, EventArgs e)
