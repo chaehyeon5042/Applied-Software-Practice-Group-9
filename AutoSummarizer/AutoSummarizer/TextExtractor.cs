@@ -31,5 +31,8 @@ namespace AutoSummarizer
             var strategy = new SimpleTextExtractionStrategy();
             return PdfTextExtractor.GetTextFromPage(pdfDoc.GetPage(pageNumber), strategy);
         }
+
+        // 현재는 pdf로만 구현이 되어있어 ppt와 txt등 파일이 안되어 있어서 이부분을 추가해야 미리보기부분에서 제대로된 확인을 할수있음
+
     }
 }

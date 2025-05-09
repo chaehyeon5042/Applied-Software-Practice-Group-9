@@ -66,23 +66,20 @@ namespace AutoSummarizer
                 // 2) 문단 단위로 2000자 청크 분할
                 List<string> chunks = Chunker.SplitToChunks(allText, 5000);
 
-                // 3) (선택) 청크 미리보기
-                // using (var preview = new ChunkPreviewForm(chunks)) preview.ShowDialog(this);
-
-                // 4) ChatService 및 PartialSummarizer 초기화
+                // 3) ChatService 및 PartialSummarizer 초기화
                 string apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY")
                                 ?? throw new InvalidOperationException("OPENAI_API_KEY가 설정되어 있지 않습니다.");
                 var chatService = new ChatService(apiKey, model: "gpt-3.5-turbo");
 
                 var summarizer = new PartialSummarizer(chatService);
 
-                // 5) 1차 요약 수행
+                // 4) 1차 요약 수행
                 List<string> temp = await summarizer.SummarizeChunksAsync(chunks);
 
-                // 6) 부분 요약 합치기
+                // 5) 부분 요약 합치기
                 string combined = string.Join(Environment.NewLine + Environment.NewLine, temp);
 
-                // 7) 결과 표시
+                // 6) 결과 표시
                 using (var resultForm = new Test(combined))
                 {
                     resultForm.ShowDialog(this);
@@ -98,5 +95,7 @@ namespace AutoSummarizer
                 btn_Gen.Enabled = true;
             }
         }
+
+
     }
 }
