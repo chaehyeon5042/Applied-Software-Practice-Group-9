@@ -86,6 +86,7 @@ namespace AutoSummarizer
                     //수정해야할 부분
                     picBox_Pre.Visible = true;
                     picBox_Pre.Image = TextToImageConverter.ConvertTextToImage(summarizedText, picBox_Pre.Width, picBox_Pre.Height);
+                    // picBox_Pre.Image = GenerateImageFromFileContent(summarizedFilePath, picBox_Pre.Width, picBox_Pre.Height);
                 }
                 else if (rdoOption == rdoStudy)
                 {
@@ -93,6 +94,7 @@ namespace AutoSummarizer
                     //pdf라서 제대로 구현이 된부분인데 보이는것에서 약간의 수정이 필요해 보이긴함
                     picBox_Study.Visible = true;
                     picBox_Study.Image = TextToImageConverter.ConvertTextToImage(summarizedText, picBox_Study.Width, picBox_Study.Height);
+                    //picBox_Study.Image = GenerateImageFromFileContent(summarizedFilePath, picBox_Study.Width, picBox_Study.Height);
                 }
                 else
                 {
@@ -100,9 +102,188 @@ namespace AutoSummarizer
                     //수정해야할 부분
                     picBox_Report.Visible = true;
                     picBox_Report.Image = TextToImageConverter.ConvertTextToImage(summarizedText, picBox_Report.Width, picBox_Report.Height);
+                    //picBox_Report.Image = GenerateImageFromFileContent(summarizedFilePath, picBox_Report.Width, picBox_Report.Height);
                 }
             }
         }
+                //private Image GenerateImageFromFileContent(string filePath, int maxWidth, int maxHeight)
+        //{
+        //    string extension = Path.GetExtension(filePath).ToLower();
+        //    string content = string.Empty;
+        
+        //    if (extension == ".pdf")
+        //    {
+        //        content = ExtractTextFromPdf(filePath);
+        //    }
+        //    else if (extension == ".ppt" || extension == ".pptx")
+        //    {
+        //        content = ExtractTextFromPpt(filePath);
+        //    }
+        //    else if (extension == ".doc" || extension == ".docx")
+        //    {
+        //        content = ExtractTextFromWord(filePath);
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("지원하지 않는 파일 형식입니다.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        return null;
+        //    }
+        
+        //    return GenerateImageFromText(content, maxWidth, maxHeight);
+        //}
+        
+        //private string ExtractTextFromPdf(string pdfFilePath)
+        //{
+        //    StringBuilder text = new StringBuilder();
+        
+        //    try
+        //    {
+        //        using (PdfReader reader = new PdfReader(pdfFilePath))
+        //        {
+        //            using (PdfDocument document = new PdfDocument(reader))
+        //            {
+        //                for (int i = 1; i <= document.GetNumberOfPages(); i++)
+        //                {
+        //                    PdfPage page = document.GetPage(i);
+        //                    ITextExtractionStrategy strategy = new LocationTextExtractionStrategy();
+        //                    string pageText = PdfTextExtractor.GetTextFromPage(page, strategy);
+        //                    text.Append(pageText);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"PDF 추출 오류: {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        
+        //    return text.ToString();
+        //}
+        
+        //private string ExtractTextFromPpt(string pptFilePath)
+        //{
+        //    StringBuilder text = new StringBuilder();
+        //    PowerPoint.Application pptApp = null;
+        //    PowerPoint.Presentation pptPresentation = null;
+        
+        //    try
+        //    {
+        //        pptApp = new PowerPoint.Application();
+        //        pptPresentation = pptApp.Presentations.Open(pptFilePath, MsoTriState.msoFalse, MsoTriState.msoFalse, MsoTriState.msoFalse);
+        
+        //        foreach (PowerPoint.Slide slide in pptPresentation.Slides)
+        //        {
+        //            foreach (PowerPoint.Shape shape in slide.Shapes)
+        //            {
+        //                if (shape.HasTextFrame == MsoTriState.msoTrue)
+        //                {
+        //                    text.Append(shape.TextFrame.TextRange.Text);
+        //                    text.Append(Environment.NewLine);
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"PPT 추출 오류: {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    finally
+        //    {
+        //        if (pptPresentation != null)
+        //        {
+        //            pptPresentation.Close();
+        //            System.Runtime.InteropServices.Marshal.ReleaseComObject(pptPresentation);
+        //            pptPresentation = null;
+        //        }
+        //        if (pptApp != null)
+        //        {
+        //            pptApp.Quit();
+        //            System.Runtime.InteropServices.Marshal.ReleaseComObject(pptApp);
+        //            pptApp = null;
+        //        }
+        //        GC.Collect();
+        //        GC.WaitForPendingFinalizers();
+        //    }
+        
+        //    return text.ToString();
+        //}
+        
+        //private string ExtractTextFromWord(string wordFilePath)
+        //{
+        //    StringBuilder text = new StringBuilder();
+        //    Word.Application wordApp = null;
+        //    Word.Document wordDocument = null;
+        
+        //    try
+        //    {
+        //        wordApp = new Word.Application();
+        //        wordDocument = wordApp.Documents.Open(wordFilePath);
+        
+        //        foreach (Word.Paragraph paragraph in wordDocument.Paragraphs)
+        //        {
+        //            text.Append(paragraph.Range.Text);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show($"Word 추출 오류: {ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //    finally
+        //    {
+        //        if (wordDocument != null)
+        //        {
+        //            wordDocument.Close();
+        //            System.Runtime.InteropServices.Marshal.ReleaseComObject(wordDocument);
+        //            wordDocument = null;
+        //        }
+        //        if (wordApp != null)
+        //        {
+        //            wordApp.Quit();
+        //            System.Runtime.InteropServices.Marshal.ReleaseComObject(wordApp);
+        //            wordApp = null;
+        //        }
+        //        GC.Collect();
+        //        GC.WaitForPendingFinalizers();
+        //    }
+        
+        //    return text.ToString();
+        //}
+        
+        //private Bitmap GenerateImageFromText(string text, int maxWidth, int maxHeight)
+        //{
+        //    // 1. 글꼴 및 기타 설정
+        //    Font font = new Font("Arial", 12); // 적절한 글꼴 선택
+        //    Color textColor = Color.Black;
+        //    Color backColor = Color.White;
+        //    int padding = 10;
+        
+        //    // 2. 텍스트 측정
+        //    // 임시 비트맵을 생성하여 그래픽 컨텍스트 얻기
+        //    using (Bitmap tempBitmap = new Bitmap(1, 1))
+        //    {
+        //        using (Graphics tempGraphics = Graphics.FromImage(tempBitmap))
+        //        {
+        //            SizeF textSize = tempGraphics.MeasureString(text, font, maxWidth - (2 * padding));
+        
+        //            // 3. 최종 비트맵 생성
+        //            int width = (int)Math.Min(maxWidth, textSize.Width + (2 * padding));
+        //            int height = (int)textSize.Height + (2 * padding);
+        
+        //            Bitmap bmp = new Bitmap(width, height);
+        
+        //            using (Graphics gfx = Graphics.FromImage(bmp))
+        //            {
+        //                //gfx.SmoothingMode = SmoothingMode.AntiAlias;  //선택 사항이지만 텍스트를 더 좋게 보이게 할 수 있습니다.
+        //                gfx.Clear(backColor);
+        
+        //                // 4. 텍스트 그리기
+        //                gfx.DrawString(text, font, new SolidBrush(textColor), new RectangleF(padding, padding, width - (2 * padding), height - (2 * padding)));
+        //            }
+        
+        //            return bmp;
+        //        }
+        //    }
+        //}
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
