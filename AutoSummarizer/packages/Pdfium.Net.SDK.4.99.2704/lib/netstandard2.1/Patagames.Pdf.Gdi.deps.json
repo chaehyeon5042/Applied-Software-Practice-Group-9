@@ -1,0 +1,67 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.1/",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.1": {},
+    ".NETStandard,Version=v2.1/": {
+      "Patagames.Pdf.Gdi/1.0.0": {
+        "dependencies": {
+          "Patagames.Pdf": "1.0.0",
+          "System.Drawing.Common": "5.0.3",
+          "Patagames.Pdf.Reference": "11.87.48.2021"
+        },
+        "runtime": {
+          "Patagames.Pdf.Gdi.dll": {}
+        }
+      },
+      "System.Drawing.Common/5.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/System.Drawing.Common.dll": {
+            "assemblyVersion": "4.0.0.2",
+            "fileVersion": "4.6.29719.1"
+          }
+        }
+      },
+      "Patagames.Pdf/1.0.0": {
+        "runtime": {
+          "Patagames.Pdf.dll": {}
+        }
+      },
+      "Patagames.Pdf.Reference/11.87.48.2021": {
+        "runtime": {
+          "Patagames.Pdf.dll": {
+            "assemblyVersion": "11.87.48.2021",
+            "fileVersion": "11.87.48.2021"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Patagames.Pdf.Gdi/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Drawing.Common/5.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rEQZuslijqdsO0pkJn7LtGBaMc//YVA8de0meGihkg9oLPaN+w+/Pb5d71lgp0YjPoKgBKNMvdq0IPnoW4PEng==",
+      "path": "system.drawing.common/5.0.3",
+      "hashPath": "system.drawing.common.5.0.3.nupkg.sha512"
+    },
+    "Patagames.Pdf/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Patagames.Pdf.Reference/11.87.48.2021": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

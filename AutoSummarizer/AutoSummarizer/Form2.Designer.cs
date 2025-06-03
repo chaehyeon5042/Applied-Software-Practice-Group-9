@@ -53,78 +53,85 @@
             this.grpBox_Pre.Controls.Add(this.rdoReport);
             this.grpBox_Pre.Controls.Add(this.rdoStudy);
             this.grpBox_Pre.Controls.Add(this.rdoPresentation);
-            this.grpBox_Pre.Location = new System.Drawing.Point(13, 13);
+            this.grpBox_Pre.Location = new System.Drawing.Point(8, 7);
+            this.grpBox_Pre.Margin = new System.Windows.Forms.Padding(2);
             this.grpBox_Pre.Name = "grpBox_Pre";
-            this.grpBox_Pre.Size = new System.Drawing.Size(775, 361);
+            this.grpBox_Pre.Padding = new System.Windows.Forms.Padding(2);
+            this.grpBox_Pre.Size = new System.Drawing.Size(972, 547);
             this.grpBox_Pre.TabIndex = 0;
             this.grpBox_Pre.TabStop = false;
             this.grpBox_Pre.Text = "Preview";
             // 
             // picBox_Report
             // 
-            this.picBox_Report.Location = new System.Drawing.Point(540, 40);
+            this.picBox_Report.Location = new System.Drawing.Point(657, 18);
+            this.picBox_Report.Margin = new System.Windows.Forms.Padding(2);
             this.picBox_Report.Name = "picBox_Report";
-            this.picBox_Report.Size = new System.Drawing.Size(209, 271);
+            this.picBox_Report.Size = new System.Drawing.Size(311, 440);
             this.picBox_Report.TabIndex = 5;
             this.picBox_Report.TabStop = false;
+            this.picBox_Report.Click += new System.EventHandler(this.picBox_Report_Click);
             // 
             // picBox_Study
             // 
-            this.picBox_Study.Location = new System.Drawing.Point(280, 38);
+            this.picBox_Study.Location = new System.Drawing.Point(331, 18);
+            this.picBox_Study.Margin = new System.Windows.Forms.Padding(2);
             this.picBox_Study.Name = "picBox_Study";
-            this.picBox_Study.Size = new System.Drawing.Size(209, 273);
+            this.picBox_Study.Size = new System.Drawing.Size(322, 440);
             this.picBox_Study.TabIndex = 4;
             this.picBox_Study.TabStop = false;
             // 
             // picBox_Pre
             // 
-            this.picBox_Pre.Location = new System.Drawing.Point(21, 37);
+            this.picBox_Pre.Location = new System.Drawing.Point(33, 18);
+            this.picBox_Pre.Margin = new System.Windows.Forms.Padding(2);
             this.picBox_Pre.Name = "picBox_Pre";
-            this.picBox_Pre.Size = new System.Drawing.Size(209, 274);
+            this.picBox_Pre.Size = new System.Drawing.Size(294, 440);
             this.picBox_Pre.TabIndex = 3;
             this.picBox_Pre.TabStop = false;
             // 
             // rdoReport
             // 
             this.rdoReport.AutoSize = true;
-            this.rdoReport.Location = new System.Drawing.Point(561, 317);
+            this.rdoReport.Location = new System.Drawing.Point(770, 492);
+            this.rdoReport.Margin = new System.Windows.Forms.Padding(2);
             this.rdoReport.Name = "rdoReport";
-            this.rdoReport.Size = new System.Drawing.Size(166, 25);
+            this.rdoReport.Size = new System.Drawing.Size(105, 16);
             this.rdoReport.TabIndex = 2;
             this.rdoReport.TabStop = true;
             this.rdoReport.Text = "보고서(Report)";
             this.rdoReport.UseVisualStyleBackColor = true;
-            this.rdoReport.CheckedChanged += new System.EventHandler(this.rdoBtn_CheckedChanged);
             // 
             // rdoStudy
             // 
             this.rdoStudy.AutoSize = true;
-            this.rdoStudy.Location = new System.Drawing.Point(309, 317);
+            this.rdoStudy.Location = new System.Drawing.Point(444, 492);
+            this.rdoStudy.Margin = new System.Windows.Forms.Padding(2);
             this.rdoStudy.Name = "rdoStudy";
-            this.rdoStudy.Size = new System.Drawing.Size(159, 25);
+            this.rdoStudy.Size = new System.Drawing.Size(101, 16);
             this.rdoStudy.TabIndex = 1;
             this.rdoStudy.TabStop = true;
             this.rdoStudy.Text = "학습용(Study)";
             this.rdoStudy.UseVisualStyleBackColor = true;
-            this.rdoStudy.CheckedChanged += new System.EventHandler(this.rdoBtn_CheckedChanged);
             // 
             // rdoPresentation
             // 
             this.rdoPresentation.AutoSize = true;
-            this.rdoPresentation.Location = new System.Drawing.Point(21, 317);
+            this.rdoPresentation.Location = new System.Drawing.Point(108, 492);
+            this.rdoPresentation.Margin = new System.Windows.Forms.Padding(2);
             this.rdoPresentation.Name = "rdoPresentation";
-            this.rdoPresentation.Size = new System.Drawing.Size(209, 25);
+            this.rdoPresentation.Size = new System.Drawing.Size(136, 16);
             this.rdoPresentation.TabIndex = 0;
             this.rdoPresentation.TabStop = true;
             this.rdoPresentation.Text = "발표용(Presentaion)";
             this.rdoPresentation.UseVisualStyleBackColor = true;
-            this.rdoPresentation.CheckedChanged += new System.EventHandler(this.rdoBtn_CheckedChanged);
             // 
             // btn_Save
             // 
-            this.btn_Save.Location = new System.Drawing.Point(34, 401);
+            this.btn_Save.Location = new System.Drawing.Point(266, 604);
+            this.btn_Save.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Save.Name = "btn_Save";
-            this.btn_Save.Size = new System.Drawing.Size(230, 49);
+            this.btn_Save.Size = new System.Drawing.Size(146, 28);
             this.btn_Save.TabIndex = 1;
             this.btn_Save.Text = "Save";
             this.btn_Save.UseVisualStyleBackColor = true;
@@ -132,9 +139,10 @@
             // 
             // btn_Back
             // 
-            this.btn_Back.Location = new System.Drawing.Point(283, 401);
+            this.btn_Back.Location = new System.Drawing.Point(416, 604);
+            this.btn_Back.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Back.Name = "btn_Back";
-            this.btn_Back.Size = new System.Drawing.Size(230, 49);
+            this.btn_Back.Size = new System.Drawing.Size(146, 28);
             this.btn_Back.TabIndex = 2;
             this.btn_Back.Text = "Back";
             this.btn_Back.UseVisualStyleBackColor = true;
@@ -142,9 +150,10 @@
             // 
             // btn_Exit
             // 
-            this.btn_Exit.Location = new System.Drawing.Point(532, 402);
+            this.btn_Exit.Location = new System.Drawing.Point(566, 604);
+            this.btn_Exit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Exit.Name = "btn_Exit";
-            this.btn_Exit.Size = new System.Drawing.Size(230, 48);
+            this.btn_Exit.Size = new System.Drawing.Size(146, 27);
             this.btn_Exit.TabIndex = 3;
             this.btn_Exit.Text = "Exit";
             this.btn_Exit.UseVisualStyleBackColor = true;
@@ -152,19 +161,21 @@
             // 
             // PreviewForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 477);
+            this.ClientSize = new System.Drawing.Size(991, 671);
             this.Controls.Add(this.btn_Exit);
             this.Controls.Add(this.btn_Back);
             this.Controls.Add(this.btn_Save);
             this.Controls.Add(this.grpBox_Pre);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "PreviewForm";
             this.Text = "Auto Summarizer";
+            this.Load += new System.EventHandler(this.PreviewForm_Load);
             this.grpBox_Pre.ResumeLayout(false);
             this.grpBox_Pre.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Report)).EndInit();

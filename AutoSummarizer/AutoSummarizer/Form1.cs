@@ -15,6 +15,8 @@ using System.Net.Http;
 using iText.Kernel.Pdf.Navigation;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 using System.Diagnostics;
+using NPOI.OpenXmlFormats.Dml;
+using iText.Commons.Utils;
 
 namespace AutoSummarizer
 {
@@ -32,8 +34,9 @@ namespace AutoSummarizer
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                ofd.Filter = "PDF Files (*.pdf)|*.pdf";
-                ofd.Title = "요약할 PDF 파일을 선택하세요";
+                ofd.Filter = "All Supported Files (*.pdf;*.pptx)|*.pdf|*.pptx|";
+
+                ofd.Title = "요약할 파일을 선택하세요";
                 ofd.Multiselect = false;
 
                 if (ofd.ShowDialog() == DialogResult.OK)
@@ -45,47 +48,88 @@ namespace AutoSummarizer
                 }
             }
         }
+        private string TempConvertToPdf(string summarized_text)
+        {   
+            if (string.IsNullOrWhiteSpace(summarized_text)) 
+                throw new ArgumentException("텍스트가 비어 있습니다.");
+                
 
+            string tempDir = Path.GetTempPath();
+            string tempFileName = $"summary_{Guid.NewGuid():N}.pdf";
+            string tempPath = Path.Combine(tempDir, tempFileName);
+
+            string createdPath = Converter.ToPdf(summarized_text, tempPath);
+
+            if (string.IsNullOrWhiteSpace(createdPath) || !File.Exists(createdPath))
+                throw new InvalidOperationException("PDF 생성에 실패했습니다.");
+
+            return createdPath;
+        }
+
+            
+
+
+        private async Task GenerateAndPreviewAllAsync(List<string> chunks)
+        {
+            try
+            {
+                
+                var chatService = new ChatService("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", model: "gpt-4o-mini");
+                var summarizer = new PartialSummarizer(chatService);
+
+                List<string> tempStudy = await summarizer.SummarizeChunksStudy(chunks);
+                List<string> tempReport = await summarizer.SummarizeChunksReport(chunks);
+                List<string> tempPt = await summarizer.SummarizeChunksPt(chunks);
+
+                string finalStudy = string.Join(Environment.NewLine + Environment.NewLine, tempStudy);
+                string finalReport = string.Join(Environment.NewLine + Environment.NewLine, tempReport);
+                string finalPt = string.Join(Environment.NewLine+ Environment.NewLine, tempPt);
+
+                string studyPdfPath = TempConvertToPdf(finalStudy);
+                string reportPdfPath = TempConvertToPdf(finalReport);
+                string ptPath = TempConvertToPdf(finalPt);
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"오류 발생:\n{ex.Message}", "오류",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+        }
         private async void btn_Gen_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(uploadedFilePath))
             {
-                MessageBox.Show("먼저 PDF 파일을 업로드해 주세요.", "업로드 필요", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("먼저 파일을 업로드해 주세요.", "업로드 필요", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
+            
             btn_Gen.Enabled = false;
 
             try
             {
-                // 1) PDF → 전체 텍스트
-                string allText = TextExtractor.ExtractAllText(uploadedFilePath);
-
-                // 2) 문단 단위로 5000자 청크 분할
-                List<string> chunks = Chunker.SplitToChunks(allText, 5000);
-
-                // 3) ChatService 및 PartialSummarizer 초기화
-                string apiKey = "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" ?? throw new InvalidOperationException("OPENAI_API_KEY가 설정되어 있지 않습니다.");
-                var chatService = new ChatService(apiKey, model: "gpt-3.5-turbo");
-
-                var summarizer = new PartialSummarizer(chatService);
-
-                // 4) 1차 요약 수행
-                List<string> temp = await summarizer.SummarizeChunksAsync(chunks);
-
-                // 5) 부분 요약 합치기
-                string combined = string.Join(Environment.NewLine + Environment.NewLine, temp);
-
-                // 6) GPT 담당이 생성한 PDF 파일 경로 확보 (예시 경로)
-                //현재는 정적경로 사용중, 합의된 경로를 사용하거나 동적경로를 사용할 필요가 있음.
-                string summarizedFilePath = @"C:\\Temp\\GPT_Summary_Output.pdf"; // 경로만 읽어옴
-
-                // 7) 미리보기 폼 호출 (파일 경로 전달)
-                using (var resultForm = new PreviewForm(summarizedFilePath, combined))
+                string ext = Path.GetExtension(uploadedFilePath).ToLowerInvariant();
+                string allText;
+                if (ext == ".pdf")
                 {
-                    resultForm.ShowDialog(this);
+                    allText = TextExtractor.ExtractAllText(uploadedFilePath);
+                }
+                else if (ext == ".pptx")
+                {
+                    allText = TextExtractor.ExtractpptxText(uploadedFilePath);
+                }
+                else
+                {
+                    MessageBox.Show("지원하지 않는 파일 형식입니다.");
+                    return;
                 }
 
+                List<string> chunks = Chunker.SplitToChunks(allText, 5000);
+
+                await GenerateAndPreviewAllAsync(chunks);
 
             }
             catch (Exception ex)

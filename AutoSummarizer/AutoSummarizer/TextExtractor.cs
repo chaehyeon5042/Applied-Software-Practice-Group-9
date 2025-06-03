@@ -6,11 +6,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Presentation;
+using A = DocumentFormat.OpenXml.Drawing;
+using System.IO;
+
 
 namespace AutoSummarizer
 {
     public static class TextExtractor
-    {
+    {   
         public static string ExtractAllText(string pdfPath)
         {
             var result = new List<string>();
@@ -23,7 +28,7 @@ namespace AutoSummarizer
                 {
                     result.Add(ExtractPageText(pdfDoc, i));
                 }
-                return string.Join(Environment.NewLine + Environment.NewLine, result);
+                return string.Join(Environment.NewLine, result);
             }
         }
         private static string ExtractPageText(PdfDocument pdfDoc, int pageNumber)
@@ -31,8 +36,20 @@ namespace AutoSummarizer
             var strategy = new SimpleTextExtractionStrategy();
             return PdfTextExtractor.GetTextFromPage(pdfDoc.GetPage(pageNumber), strategy);
         }
+        public static string ExtractpptxText(string pptxpath)
+        {
+            var texts = new List<string>();
+            var doc = PresentationDocument.Open(pptxpath, false);
+            var slides = doc.PresentationPart.SlideParts;
 
-        // 현재는 pdf로만 구현이 되어있어 ppt와 txt등 파일이 안되어 있어서 이부분을 추가해야 미리보기부분에서 제대로된 확인을 할수있음
-
+            foreach (var slidePart in slides)
+            {
+                foreach (var txt in slidePart.Slide.Descendants<A.Text>())
+                {
+                    texts.Add(txt.Text);
+                }
+            }
+            return string.Join("\n\n", texts);
+        }
     }
 }

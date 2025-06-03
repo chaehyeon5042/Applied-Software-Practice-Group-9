@@ -12,7 +12,7 @@ namespace AutoSummarizer
 {
     public partial class ProgressDialog : Form
     {
-        public ProgressDialog(int max)
+        public ProgressDialog(int max = 10)
         {
             InitializeComponent();
             progressbar.Minimum = 0;

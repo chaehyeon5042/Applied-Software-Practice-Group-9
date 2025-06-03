@@ -11,7 +11,7 @@ namespace AutoSummarizer
     public static class Chunker
     {
         /// <summary>
-        /// 문단(빈 줄) 단위로 분리한 뒤, maxChunkSize를 넘지 않도록 문단을 묶어 청크를 반환합니다.
+        /// 문단(빈 줄) 단위로 분리한 뒤, maxChunkSize를 넘지 않도록 여러 문단을 묶어 청크를 반환
         /// </summary>
         public static List<string> SplitToChunks(string text, int maxChunkSize)
         {
@@ -29,7 +29,7 @@ namespace AutoSummarizer
                 string p = para.Trim();
                 if (p.Length == 0) continue;
 
-                // 현재 청크에 이 문단을 추가해도 크기 내라면
+                // 현재 청크에 이 문단을 추가해도 최대 크기 내라면
                 if (current.Length + p.Length + 2 <= maxChunkSize)
                 {
                     if (current.Length > 0)
