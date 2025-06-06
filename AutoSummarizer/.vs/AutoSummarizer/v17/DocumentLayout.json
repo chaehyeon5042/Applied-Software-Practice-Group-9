@@ -7,24 +7,40 @@
       "RelativeMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|solutionrelative:autosummarizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|c:\\users\\rnjsx\\onedrive\\desktop\\project1\\autosummarizer\\autosummarizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|solutionrelative:autosummarizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|c:\\users\\rnjsx\\onedrive\\desktop\\project1\\autosummarizer\\autosummarizer\\partialsummarizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|solutionrelative:autosummarizer\\partialsummarizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\autosummarizer\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|c:\\users\\rnjsx\\onedrive\\desktop\\project1\\autosummarizer\\autosummarizer\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|solutionrelative:autosummarizer\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|c:\\users\\rnjsx\\onedrive\\desktop\\project1\\autosummarizer\\autosummarizer\\previewerpdf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|solutionrelative:autosummarizer\\previewerpdf.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|c:\\users\\rnjsx\\onedrive\\desktop\\project1\\autosummarizer\\autosummarizer\\createpresentation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|solutionrelative:autosummarizer\\createpresentation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|c:\\users\\rnjsx\\onedrive\\desktop\\project1\\autosummarizer\\autosummarizer\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|solutionrelative:autosummarizer\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|c:\\users\\rnjsx\\onedrive\\desktop\\project1\\autosummarizer\\autosummarizer\\progressdialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|solutionrelative:autosummarizer\\progressdialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|c:\\users\\rnjsx\\onedrive\\desktop\\project1\\autosummarizer\\autosummarizer\\progressdialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|solutionrelative:autosummarizer\\progressdialog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\autosummarizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|solutionrelative:autosummarizer\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\autosummarizer\\textextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|solutionrelative:autosummarizer\\textextractor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\autosummarizer\\partialsummarizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|solutionrelative:autosummarizer\\partialsummarizer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\autosummarizer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FD61BB92-E32F-4A43-AAC1-8C9F7832E6DB}|AutoSummarizer\\AutoSummarizer.csproj|solutionrelative:autosummarizer\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,8 +50,85 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 10,
+          "SelectedChildIndex": 14,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form2.cs",
+              "DocumentMoniker": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\Form2.cs",
+              "RelativeDocumentMoniker": "AutoSummarizer\\Form2.cs",
+              "ToolTip": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\Form2.cs",
+              "RelativeToolTip": "AutoSummarizer\\Form2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAG8AAABMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T10:46:39.339Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PreviewerPDF.cs",
+              "DocumentMoniker": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\PreviewerPDF.cs",
+              "RelativeDocumentMoniker": "AutoSummarizer\\PreviewerPDF.cs",
+              "ToolTip": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\PreviewerPDF.cs",
+              "RelativeToolTip": "AutoSummarizer\\PreviewerPDF.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T12:41:49.029Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProgressDialog.cs",
+              "DocumentMoniker": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\ProgressDialog.cs",
+              "RelativeDocumentMoniker": "AutoSummarizer\\ProgressDialog.cs",
+              "ToolTip": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\ProgressDialog.cs",
+              "RelativeToolTip": "AutoSummarizer\\ProgressDialog.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T11:50:51.318Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ProgressDialog.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\ProgressDialog.cs",
+              "RelativeDocumentMoniker": "AutoSummarizer\\ProgressDialog.cs",
+              "ToolTip": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\ProgressDialog.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "AutoSummarizer\\ProgressDialog.cs [\uB514\uC790\uC778]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T11:50:29.951Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Form2.cs [\uB514\uC790\uC778]",
+              "DocumentMoniker": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\Form2.cs",
+              "RelativeDocumentMoniker": "AutoSummarizer\\Form2.cs",
+              "ToolTip": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\Form2.cs [\uB514\uC790\uC778]",
+              "RelativeToolTip": "AutoSummarizer\\Form2.cs [\uB514\uC790\uC778]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T11:39:51.925Z",
+              "EditorCaption": " [\uB514\uC790\uC778]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CreatePresentation.cs",
+              "DocumentMoniker": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\CreatePresentation.cs",
+              "RelativeDocumentMoniker": "AutoSummarizer\\CreatePresentation.cs",
+              "ToolTip": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\CreatePresentation.cs",
+              "RelativeToolTip": "AutoSummarizer\\CreatePresentation.cs",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAFQAAABXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-06T11:02:59.401Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
@@ -62,11 +155,11 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "Form1.cs [\uB514\uC790\uC778]",
               "DocumentMoniker": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\Form1.cs",
               "RelativeDocumentMoniker": "AutoSummarizer\\Form1.cs",
@@ -77,21 +170,6 @@
               "EditorCaption": " [\uB514\uC790\uC778]"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Form2.cs [\uB514\uC790\uC778]",
-              "DocumentMoniker": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\Form2.cs",
-              "RelativeDocumentMoniker": "AutoSummarizer\\Form2.cs",
-              "ToolTip": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\Form2.cs [\uB514\uC790\uC778]",
-              "RelativeToolTip": "AutoSummarizer\\Form2.cs [\uB514\uC790\uC778]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T17:34:50.915Z"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs",
@@ -99,46 +177,36 @@
               "RelativeDocumentMoniker": "AutoSummarizer\\Form1.cs",
               "ToolTip": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\Form1.cs",
               "RelativeToolTip": "AutoSummarizer\\Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAAAFUAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-03T17:33:16.2Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\Program.cs",
-              "RelativeDocumentMoniker": "AutoSummarizer\\Program.cs",
-              "ToolTip": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\Program.cs",
-              "RelativeToolTip": "AutoSummarizer\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T17:33:07.064Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "TextExtractor.cs",
               "DocumentMoniker": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\TextExtractor.cs",
               "RelativeDocumentMoniker": "AutoSummarizer\\TextExtractor.cs",
               "ToolTip": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\TextExtractor.cs",
               "RelativeToolTip": "AutoSummarizer\\TextExtractor.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T17:32:59.51Z"
+              "WhenOpened": "2025-06-03T17:32:59.51Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "PartialSummarizer.cs",
               "DocumentMoniker": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\PartialSummarizer.cs",
               "RelativeDocumentMoniker": "AutoSummarizer\\PartialSummarizer.cs",
               "ToolTip": "C:\\Users\\rnjsx\\OneDrive\\Desktop\\Project1\\AutoSummarizer\\AutoSummarizer\\PartialSummarizer.cs",
               "RelativeToolTip": "AutoSummarizer\\PartialSummarizer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAAEAAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T17:32:56.926Z"
+              "WhenOpened": "2025-06-03T17:32:56.926Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -12,18 +12,17 @@ namespace AutoSummarizer
 {
     public partial class ProgressDialog : Form
     {
-        public ProgressDialog(int max = 10)
+        public ProgressDialog(int max = 100)
         {
             InitializeComponent();
             progressbar.Minimum = 0;
             progressbar.Maximum = max;
             progressbar.Value = 0;
         }
-        public void Report(int value, string status = null)
+        public void Report(int value)
         {
             progressbar.Value = value;
-            if (status != null) { lblStatus.Text = status; }
+            lblStatus.Text = "processing...";
         }
-    }
-   
+    }   
 }

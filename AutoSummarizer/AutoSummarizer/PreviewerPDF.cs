@@ -29,6 +29,7 @@ namespace AutoSummarizer
             picturebox.Image?.Dispose();
             picturebox.Image = img;
             picturebox.SizeMode = PictureBoxSizeMode.Zoom;
+            doc.Dispose();
         }
     }
 }

@@ -81,7 +81,6 @@ C:\Users\rnjsx\OneDrive\Desktop\Project1\AutoSummarizer\AutoSummarizer\bin\Debug
 C:\Users\rnjsx\OneDrive\Desktop\Project1\AutoSummarizer\AutoSummarizer\bin\Debug\System.Text.Encodings.Web.xml
 C:\Users\rnjsx\OneDrive\Desktop\Project1\AutoSummarizer\AutoSummarizer\bin\Debug\System.Text.Json.xml
 C:\Users\rnjsx\OneDrive\Desktop\Project1\AutoSummarizer\AutoSummarizer\obj\Debug\AutoSummarizer.ProgressDialog.resources
-C:\Users\rnjsx\OneDrive\Desktop\Project1\AutoSummarizer\AutoSummarizer\obj\Debug\AutoSummarizer.Test.resources
 C:\Users\rnjsx\OneDrive\Desktop\Project1\AutoSummarizer\AutoSummarizer\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\rnjsx\OneDrive\Desktop\Project1\AutoSummarizer\AutoSummarizer\bin\Debug\Microsoft.Extensions.Configuration.Binder.dll
 C:\Users\rnjsx\OneDrive\Desktop\Project1\AutoSummarizer\AutoSummarizer\bin\Debug\Microsoft.Extensions.Http.dll
@@ -260,3 +259,5 @@ C:\Users\rnjsx\OneDrive\Desktop\Project1\AutoSummarizer\AutoSummarizer\bin\Debug
 C:\Users\rnjsx\OneDrive\Desktop\Project1\AutoSummarizer\AutoSummarizer\obj\Debug\Interop.Microsoft.Office.Core.dll
 C:\Users\rnjsx\OneDrive\Desktop\Project1\AutoSummarizer\AutoSummarizer\obj\Debug\AutoSummarizer.csproj.ResolveComReference.cache
 C:\Users\rnjsx\OneDrive\Desktop\Project1\AutoSummarizer\AutoSummarizer\bin\Debug\System.IO.Packaging.dll
+C:\Users\rnjsx\OneDrive\Desktop\Project1\AutoSummarizer\AutoSummarizer\bin\Debug\Spire.Presentation.dll
+C:\Users\rnjsx\OneDrive\Desktop\Project1\AutoSummarizer\AutoSummarizer\bin\Debug\Spire.Presentation.xml

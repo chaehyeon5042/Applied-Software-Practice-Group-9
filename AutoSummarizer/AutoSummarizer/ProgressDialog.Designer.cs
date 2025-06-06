@@ -44,9 +44,9 @@
             this.lblStatus.AutoSize = true;
             this.lblStatus.Location = new System.Drawing.Point(150, 46);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(38, 12);
+            this.lblStatus.Size = new System.Drawing.Size(57, 12);
             this.lblStatus.TabIndex = 1;
-            this.lblStatus.Text = "label1";
+            this.lblStatus.Text = "waiting...";
             // 
             // ProgressDialog
             // 
@@ -56,7 +56,7 @@
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.progressbar);
             this.Name = "ProgressDialog";
-            this.Text = "Form3";
+            this.Text = "진행중";
             this.ResumeLayout(false);
             this.PerformLayout();
 

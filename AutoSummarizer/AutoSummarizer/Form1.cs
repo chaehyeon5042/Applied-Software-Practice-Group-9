@@ -66,35 +66,60 @@ namespace AutoSummarizer
             return createdPath;
         }
 
-            
+        private string TempConvertToPptx(List<SlideModel> slides)
+        {
+            string tempDir = Path.GetTempPath();
+            string tempFileName = $"summary_{Guid.NewGuid():N}.Pptx";
+            string tempPath = Path.Combine(tempDir, tempFileName);
+            CreatePresentation.NewPres(slides,tempPath);
+            return tempPath;
+        }
 
 
         private async Task GenerateAndPreviewAllAsync(List<string> chunks)
         {
             try
             {
-                
-                var chatService = new ChatService("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", model: "gpt-4o-mini");
-                var summarizer = new PartialSummarizer(chatService);
+                int step = 0;
+                const int totalSteps = 3;
+                using (ProgressDialog progressDialog = new ProgressDialog())
+                {   
+                    progressDialog.Show();
+                    string openai_KEY = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
+                    var chatService = new ChatService(openai_KEY, model: "gpt-4o-mini");
+                    var summarizer = new PartialSummarizer(chatService);
 
-                List<string> tempStudy = await summarizer.SummarizeChunksStudy(chunks);
-                List<string> tempReport = await summarizer.SummarizeChunksReport(chunks);
-                List<string> tempPt = await summarizer.SummarizeChunksPt(chunks);
+                    List<string> tempStudy = await summarizer.SummarizeChunksStudy(chunks);
+                    progressDialog.Report(++step * 100 / totalSteps);
 
-                string finalStudy = string.Join(Environment.NewLine + Environment.NewLine, tempStudy);
-                string finalReport = string.Join(Environment.NewLine + Environment.NewLine, tempReport);
-                string finalPt = string.Join(Environment.NewLine+ Environment.NewLine, tempPt);
+                    List<string> tempReport = await summarizer.SummarizeChunksReport(chunks);
+                    progressDialog.Report(++step * 100 / totalSteps);
 
-                string studyPdfPath = TempConvertToPdf(finalStudy);
-                string reportPdfPath = TempConvertToPdf(finalReport);
-                string ptPath = TempConvertToPdf(finalPt);
+                    List<SlideModel> slides = await summarizer.SummarizeChunksPt(chunks);
+                    progressDialog.Report(++step * 100 / totalSteps);
+
+                    step = 0;
+                    progressDialog.Close();
 
 
+                    string finalStudy = string.Join(Environment.NewLine + Environment.NewLine, tempStudy);
+                    string finalReport = string.Join(Environment.NewLine + Environment.NewLine, tempReport);
+
+                    string studyPdfPath = TempConvertToPdf(finalStudy);
+                    string reportPdfPath = TempConvertToPdf(finalReport);
+                    string ptPath = TempConvertToPptx(slides);
+
+                    using (PreviewForm preview = new PreviewForm(studyPdfPath, reportPdfPath, ptPath, uploadedFilePath))
+                    {
+                        preview.ShowDialog(this);
+                    }
+                }
             }
+
             catch (Exception ex)
             {
                 MessageBox.Show($"오류 발생:\n{ex.Message}", "오류",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
@@ -128,7 +153,7 @@ namespace AutoSummarizer
                 }
 
                 List<string> chunks = Chunker.SplitToChunks(allText, 5000);
-
+                 
                 await GenerateAndPreviewAllAsync(chunks);
 
             }
@@ -137,7 +162,7 @@ namespace AutoSummarizer
                 MessageBox.Show($"오류 발생:\n{ex.Message}", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
-            {
+            {   
                 btn_Gen.Enabled = true;
             }
         }

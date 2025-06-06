@@ -70,7 +70,6 @@
             this.picBox_Report.Size = new System.Drawing.Size(311, 440);
             this.picBox_Report.TabIndex = 5;
             this.picBox_Report.TabStop = false;
-            this.picBox_Report.Click += new System.EventHandler(this.picBox_Report_Click);
             // 
             // picBox_Study
             // 
@@ -175,7 +174,7 @@
             this.MinimizeBox = false;
             this.Name = "PreviewForm";
             this.Text = "Auto Summarizer";
-            this.Load += new System.EventHandler(this.PreviewForm_Load);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.PreviewForm_FormClosed);
             this.grpBox_Pre.ResumeLayout(false);
             this.grpBox_Pre.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox_Report)).EndInit();

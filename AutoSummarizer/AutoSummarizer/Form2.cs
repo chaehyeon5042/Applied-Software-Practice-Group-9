@@ -29,7 +29,8 @@ namespace AutoSummarizer
 
             PreviewerPDF.PreviewPagePDF(tempStudy, picBox_Study);
             PreviewerPDF.PreviewPagePDF(tempReport, picBox_Report);
-            PreviewerPDF.PreviewPagePDF(tempPt, picBox_Pre);
+            PreviewPptx.PreviewPres(tempPt, picBox_Pre);
+
         }
 
         private void btn_Save_Click(object sender, EventArgs e)
@@ -66,7 +67,7 @@ namespace AutoSummarizer
                     // 3. 원본 파일명 정보 추출
                     string originalName = Path.GetFileName(DefaultPath);
                     string nameWithoutExt = Path.GetFileNameWithoutExtension(originalName);
-                    string extension = Path.GetExtension(originalName);
+                    string extension = Path.GetExtension(SelectedDirectory);
 
                     // 4. 날짜 추가
                     string date = DateTime.Now.ToString("yyyy-MM-dd");
@@ -148,7 +149,7 @@ namespace AutoSummarizer
                 prompt.Height = 150;
                 prompt.Text = "파일 이름 다시 입력";
 
-                Label textLabel = new Label() { Left = 20, Top = 20, Text = "새 파일 이름(.pdf 포함):", Width = 300 };
+                Label textLabel = new Label() { Left = 20, Top = 20, Text = "파일 이름 입력" + Path.GetExtension(oldName), Width = 300 };
                 TextBox inputBox = new TextBox() { Left = 20, Top = 50, Width = 340, Text = oldName };
 
                 Button confirmation = new Button() { Text = "확인", Left = 270, Width = 90, Top = 80, DialogResult = DialogResult.OK };
@@ -161,27 +162,35 @@ namespace AutoSummarizer
                 return (prompt.ShowDialog() == DialogResult.OK) ? inputBox.Text : null;
             }
         }
-
+        private void Form_Closed(object sender, EventArgs e)
+        {
+            Close();
+        }
         private void btn_Back_Click(object sender, EventArgs e)
         {
             //이 창만 닫고 이전 창으로 돌아가기
+
+            File.Delete(tempPt);
+            File.Delete(tempReport);
+            File.Delete(tempStudy);
             this.Close();
         }
 
         private void btn_Exit_Click(object sender, EventArgs e)
         {
             //프로그램 종료
+            File.Delete(tempPt);
+            File.Delete(tempReport);
+            File.Delete(tempStudy);
             Application.Exit();
         }
 
-        private void picBox_Report_Click(object sender, EventArgs e)
+        private void PreviewForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-
-        }
-
-        private void PreviewForm_Load(object sender, EventArgs e)
-        {
-
+           
+            File.Delete(tempPt);
+            File.Delete(tempReport);
+            File.Delete(tempStudy);
         }
     }
 }
