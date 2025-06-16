@@ -25,7 +25,7 @@ namespace AutoSummarizer
             {
                 presentation.LoadFromFile(path);
                 ISlide slide = presentation.Slides[0];
-                Image image = slide.SaveAsImage(294, 440);
+                Image image = slide.SaveAsImage(400, 300);
                 picbox.Image = image;
             }
             finally

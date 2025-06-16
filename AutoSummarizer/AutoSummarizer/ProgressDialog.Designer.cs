@@ -28,34 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProgressDialog));
             this.progressbar = new System.Windows.Forms.ProgressBar();
             this.lblStatus = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // progressbar
             // 
-            this.progressbar.Location = new System.Drawing.Point(12, 12);
+            this.progressbar.Location = new System.Drawing.Point(19, 21);
+            this.progressbar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.progressbar.Name = "progressbar";
-            this.progressbar.Size = new System.Drawing.Size(313, 24);
+            this.progressbar.Size = new System.Drawing.Size(492, 42);
             this.progressbar.TabIndex = 0;
             // 
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(150, 46);
+            this.lblStatus.Location = new System.Drawing.Point(215, 79);
+            this.lblStatus.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(57, 12);
+            this.lblStatus.Size = new System.Drawing.Size(87, 21);
             this.lblStatus.TabIndex = 1;
             this.lblStatus.Text = "waiting...";
             // 
             // ProgressDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 67);
+            this.ClientSize = new System.Drawing.Size(530, 117);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.progressbar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "ProgressDialog";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "진행중";
             this.ResumeLayout(false);
             this.PerformLayout();
