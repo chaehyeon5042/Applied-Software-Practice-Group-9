@@ -90,7 +90,7 @@ namespace AutoSummarizer
                         using (SaveFileDialog dialog = new SaveFileDialog())
                         {
                             dialog.Title = "요약 파일을 저장할 위치와 이름을 선택하세요.";
-                            dialog.Filter = "모든 파일 (*.*)|*.*";
+                            dialog.Filter = "PowerPoint 프레젠테이션 (*.pptx;*.ppt)|*.pptx;*.ppt|PDF 파일 (*.pdf)|*.pdf|텍스트 파일 (*.txt)|*.txt|모든 파일 (*.*)|*.*";
                             dialog.FileName = fileName;
 
                             if (dialog.ShowDialog(this) == DialogResult.OK)
