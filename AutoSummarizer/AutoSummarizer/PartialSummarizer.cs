@@ -25,38 +25,34 @@ namespace AutoSummarizer
         /// 분할된 텍스트 청크 리스트를 ChatGPT에 기존 요약본과 함께 순차 전송해,
         /// 해당 전송본에 대한 요약을 리스트에 저장
         /// </summary>
-        public async Task<List<string>> SummarizeChunksStudy(List<string> chunks)
+        public async Task<string> SummarizeChunksStudy(List<string> chunks)
         {
-            var chatService = new ChatService("OPENAI_API_KEY", model: "gpt-4o-mini");
+            var chatService = new ChatService("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", model: "gpt-4o-mini");
 
 
-            var partials = new List<string>();
             string summary = string.Empty;
             for (int i = 0; i < chunks.Count; i++)
             {
-                string prompt = "다음 내용을 학습하기 편한 형식으로 한글로 요약해 주세요. 주제별로 요약이 잘 되어있어야 해요. 부족한 내용이 있다면 보충설명도 부탁합니다. 또한, 요약된 텍스트 내용은 다른 파일로(pdf)변환되니 고려해주세요:\n\n" +
+                string prompt = "다음 내용을 학습하기 편한 형식으로 한글로 요약해 주세요. 주제별로 요약이 잘 되어있어야 해요. 부족한 내용이 있다면 보충설명도 부탁합니다. 또한, 요약된 텍스트 내용은 다른 파일로(pdf)변환되니 고려해주세요. 요약된 텍스트라는것을 알려주는 텍스트는 없어도 됩니다.:\n\n" +
                 summary + chunks[i];
 
                 summary = await _chat.SendToGptAsync(prompt);
-                partials.Add(summary);
             }
 
-            return partials;
+            return summary;
         }
-        public async Task<List<string>> SummarizeChunksReport(List<string> chunks)
+        public async Task<string> SummarizeChunksReport(List<string> chunks)
         {
-            var partials = new List<string>();
             string summary = string.Empty;
             for (int i = 0; i < chunks.Count; i++)
             {
-                string prompt = "다음 내용을 제출을 위한 보고서 형식으로 한글로 요약해 주세요. 요약된 텍스트 내용은 다른 파일로(pdf)변환되니 고려해주세요:\n\n" +
+                string prompt = "다음 내용을 제출을 위한 보고서 형식으로 한글로 요약해 주세요. 요약된 텍스트 내용은 다른 파일로(pdf)변환되니 고려해주세요. 요약된 텍스트라는것을 알려주는 텍스트는 없어도 됩니다.:\n\n" +
                 summary + chunks[i];
 
                 summary = await _chat.SendToGptAsync(prompt);
-                partials.Add(summary);
             }
 
-            return partials;
+            return summary;
         }
         public async Task<List<SlideModel>> SummarizeChunksPt(List<string> chunks)
         {
@@ -92,9 +88,9 @@ namespace AutoSummarizer
             summary = await _chat.SendToGptAsync(prompt);
             var doc = JsonDocument.Parse(summary);
             var root = doc.RootElement.GetProperty("slides");
-            
+
             var slides = new List<SlideModel>();   //역직렬화
-            foreach(var slideEl in root.EnumerateArray())
+            foreach (var slideEl in root.EnumerateArray())
             {
                 var slide = new SlideModel
                 {
@@ -109,6 +105,4 @@ namespace AutoSummarizer
     }
 }
 
-
-            
 

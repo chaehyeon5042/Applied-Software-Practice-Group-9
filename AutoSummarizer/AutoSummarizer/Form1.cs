@@ -90,17 +90,16 @@ namespace AutoSummarizer
                 int step = 0;
                 const int totalSteps = 3;
                 using (ProgressDialog progressDialog = new ProgressDialog())
-                {   
+                {
                     progressDialog.Show();
                     string openai_KEY = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
-               
                     var chatService = new ChatService(openai_KEY, model: "gpt-4o-mini");
                     var summarizer = new PartialSummarizer(chatService);
 
-                    List<string> tempStudy = await summarizer.SummarizeChunksStudy(chunks);
+                    string tempStudy = await summarizer.SummarizeChunksStudy(chunks);
                     progressDialog.Report(++step * 100 / totalSteps);
 
-                    List<string> tempReport = await summarizer.SummarizeChunksReport(chunks);
+                    string tempReport = await summarizer.SummarizeChunksReport(chunks);
                     progressDialog.Report(++step * 100 / totalSteps);
 
                     List<SlideModel> slides = await summarizer.SummarizeChunksPt(chunks);
@@ -110,11 +109,10 @@ namespace AutoSummarizer
                     progressDialog.Close();
 
 
-                    string finalStudy = string.Join(Environment.NewLine + Environment.NewLine, tempStudy);
-                    string finalReport = string.Join(Environment.NewLine + Environment.NewLine, tempReport);
 
-                    string studyPdfPath = TempConvertToPdf(finalStudy);
-                    string reportPdfPath = TempConvertToPdf(finalReport);
+
+                    string studyPdfPath = TempConvertToPdf(tempStudy);
+                    string reportPdfPath = TempConvertToPdf(tempReport);
                     string ptPath = TempConvertToPptx(slides);
 
                     using (PreviewForm preview = new PreviewForm(studyPdfPath, reportPdfPath, ptPath, uploadedFilePath))
@@ -129,6 +127,7 @@ namespace AutoSummarizer
                 MessageBox.Show($"오류 발생:\n{ex.Message}", "오류",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             
         }
         private async void btn_Gen_Click(object sender, EventArgs e)
