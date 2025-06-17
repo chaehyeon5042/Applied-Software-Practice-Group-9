@@ -92,8 +92,8 @@ namespace AutoSummarizer
                 using (ProgressDialog progressDialog = new ProgressDialog())
                 {   
                     progressDialog.Show();
-                    //string openai_KEY = Environment.GetEnvironmentVariable("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");
-                    string openai_KEY = "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"; 
+                    string openai_KEY = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
+               
                     var chatService = new ChatService(openai_KEY, model: "gpt-4o-mini");
                     var summarizer = new PartialSummarizer(chatService);
 
