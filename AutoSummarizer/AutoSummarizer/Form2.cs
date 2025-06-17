@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
@@ -35,111 +36,130 @@ namespace AutoSummarizer
 
         private void btn_Save_Click(object sender, EventArgs e)
         {
-
+            // 1) 저장할 임시 파일 결정
             string SelectedDirectory;
-
-            if(rdoPresentation.Checked)
-            {
+            if (rdoPresentation.Checked)
                 SelectedDirectory = tempPt;
-            }
-            else if(rdoStudy.Checked)
-            {
+            else if (rdoStudy.Checked)
                 SelectedDirectory = tempStudy;
-            }
             else
-            {
                 SelectedDirectory = tempReport;
-            }
+
             try
+            {
+                // 2) 기본 파일 존재 여부 체크
+                if (!File.Exists(DefaultPath))
                 {
-                    // 1. 전달받은 요약 파일 경로 사용
-                    if (!File.Exists(DefaultPath))
+                    MessageBox.Show("기본 파일이 존재하지 않습니다.", "오류",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // 3) 용도(subject) 결정
+                string subjectName = rdoPresentation.Checked ? "Presentation"
+                                  : rdoStudy.Checked ? "Study"
+                                  : "Report";
+
+                // 4) 원본 파일명 & 확장자 분리
+                string originalName = Path.GetFileName(DefaultPath);
+                string nameWithoutExt = Path.GetFileNameWithoutExtension(originalName);
+                string extension = Path.GetExtension(SelectedDirectory);
+
+                // 5) 날짜 추가
+                string date = DateTime.Now.ToString("yyyy-MM-dd");
+
+                // 6) 기본 파일명 조합
+                string fileName = $"{subjectName}_{nameWithoutExt}_{date}{extension}";
+
+                // 7) 저장 방식 선택
+                var choice = MessageBox.Show(
+                    "저장 방식을 선택하세요:\n\n" +
+                    "예: 직접 저장 위치 및 파일명 지정\n" +
+                    "아니오: 바탕화면에 과목명 폴더 자동 저장",
+                    "저장 옵션",
+                    MessageBoxButtons.YesNoCancel,
+                    MessageBoxIcon.Question);
+                if (choice == DialogResult.Cancel) return;
+
+                // 8) 저장할 폴더 결정
+                string directoryPath;
+                if (choice == DialogResult.Yes)
+                {
+                    using (var sfd = new SaveFileDialog())
                     {
-                        MessageBox.Show("기본 파일이 존재하지 않습니다.", "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                        sfd.Title = "요약 파일 저장 위치 및 이름을 선택하세요";
+                        sfd.Filter = "PowerPoint (*.pptx;*.ppt)|*.pptx;*.ppt|PDF (*.pdf)|*.pdf|텍스트 (*.txt)|*.txt|모든 파일 (*.*)|*.*";
+                        sfd.FileName = fileName;
 
-                    // 2. 용도 추출 (라디오 버튼 기반)
-                    string subjectName = "Report";
-                    if (rdoPresentation.Checked) subjectName = "Presentation";
-                    else if (rdoStudy.Checked) subjectName = "Study";
-
-                    // 3. 원본 파일명 정보 추출
-                    string originalName = Path.GetFileName(DefaultPath);
-                    string nameWithoutExt = Path.GetFileNameWithoutExtension(originalName);
-                    string extension = Path.GetExtension(SelectedDirectory);
-
-                    // 4. 날짜 추가
-                    string date = DateTime.Now.ToString("yyyy-MM-dd");
-
-                    // 5. 파일명 구성
-                    string fileName = $"{subjectName}_{nameWithoutExt}_{date}{extension}";
-
-                    // 6. 저장 방식 선택
-                    DialogResult choice = MessageBox.Show(
-                        "저장 방식을 선택하세요:\n\n예: 직접 저장 위치 및 파일명 지정\n아니오: 바탕화면에 과목명 폴더 자동 저장",
-                        "저장 옵션",
-                        MessageBoxButtons.YesNoCancel,
-                        MessageBoxIcon.Question);
-
-                    if (choice == DialogResult.Cancel) return;
-
-                    string directoryPath = "";
-                    if (choice == DialogResult.Yes)
-                    {
-                        using (SaveFileDialog dialog = new SaveFileDialog())
-                        {
-                            dialog.Title = "요약 파일을 저장할 위치와 이름을 선택하세요.";
-                            dialog.Filter = "PowerPoint 프레젠테이션 (*.pptx;*.ppt)|*.pptx;*.ppt|PDF 파일 (*.pdf)|*.pdf|텍스트 파일 (*.txt)|*.txt|모든 파일 (*.*)|*.*";
-                            dialog.FileName = fileName;
-
-                            if (dialog.ShowDialog(this) == DialogResult.OK)
-                            {
-                                directoryPath = Path.GetDirectoryName(dialog.FileName);
-                                fileName = Path.GetFileName(dialog.FileName);
-                            }
-                            else return;
-                        }
-                    }
-                    else if (choice == DialogResult.No)
-                    {
-                        string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                        directoryPath = Path.Combine(desktopPath, subjectName);
-                        Directory.CreateDirectory(directoryPath);
-                    }
-
-                    // 7. 최종 경로 결정
-                    string fullPath = Path.Combine(directoryPath, fileName);
-
-                    // 8. 파일 중복 여부 확인
-                    if (File.Exists(fullPath))
-                    {
-                        DialogResult overwriteChoice = MessageBox.Show(
-                            "같은 이름의 파일이 이미 존재합니다.\n덮어쓰시겠습니까?",
-                            "파일 중복 경고",
-                            MessageBoxButtons.YesNoCancel,
-                            MessageBoxIcon.Warning);
-
-                        if (overwriteChoice == DialogResult.No)
-                        {
-                            string newFileName = PromptForNewFileName(fileName);
-                            if (string.IsNullOrWhiteSpace(newFileName)) return;
-                            fullPath = Path.Combine(directoryPath, newFileName);
-                        }
-                        else if (overwriteChoice == DialogResult.Cancel)
-                        {
+                        if (sfd.ShowDialog(this) != DialogResult.OK)
                             return;
+
+                        directoryPath = Path.GetDirectoryName(sfd.FileName);
+                        fileName = Path.GetFileName(sfd.FileName);
+                    }
+                }
+                else // DialogResult.No
+                {
+                    var desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                    directoryPath = Path.Combine(desktop, subjectName);
+                    Directory.CreateDirectory(directoryPath);
+                }
+
+                // 9) 최종 경로
+                string fullPath = Path.Combine(directoryPath, fileName);
+
+                // 10) 중복 파일 처리
+                if (File.Exists(fullPath))
+                {
+                    var over = MessageBox.Show(
+                        "같은 이름의 파일이 이미 존재합니다.\n덮어쓰시겠습니까?",
+                        "파일 중복 경고",
+                        MessageBoxButtons.YesNoCancel,
+                        MessageBoxIcon.Warning);
+
+                    if (over == DialogResult.Cancel) return;
+                    if (over == DialogResult.No)
+                    {
+                        int idx = 1;
+                        string baseName = Path.GetFileNameWithoutExtension(fileName);
+                        while (File.Exists(fullPath))
+                        {
+                            string tmp = $"{baseName}_{idx++}{extension}";
+                            fullPath = Path.Combine(directoryPath, tmp);
                         }
                     }
-                    // 9. 파일 복사
-                    File.Copy(SelectedDirectory, fullPath, overwrite: true);
-                    MessageBox.Show("요약 파일이 저장되었습니다:\n" + fullPath, "저장 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                catch (Exception ex)
+
+                // 11) 파일 복사
+                File.Copy(SelectedDirectory, fullPath, overwrite: true);
+
+                // 12) 저장 완료 메시지 & 폴더 열기 여부 묻기
+                var openFolder = MessageBox.Show(
+                    "요약 파일이 저장되었습니다:\n" + fullPath + "\n\n" +
+                    "저장된 폴더를 열어보시겠습니까?",
+                    "저장 완료",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Information);
+
+                if (openFolder == DialogResult.Yes)
                 {
-                    MessageBox.Show("저장 중 오류 발생: " + ex.Message, "오류", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // 탐색기에서 해당 폴더 열기
+                    Process.Start(new ProcessStartInfo()
+                    {
+                        FileName = "explorer.exe",
+                        Arguments = $"\"{directoryPath}\"",
+                        UseShellExecute = true
+                    });
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("저장 중 오류 발생:\n" + ex.Message, "오류",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
+
 
         private string PromptForNewFileName(string oldName)
         {

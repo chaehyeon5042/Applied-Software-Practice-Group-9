@@ -34,7 +34,12 @@ namespace AutoSummarizer
         {
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                ofd.Filter = "All Supported Files (*.pdf;*.pptx)|*.pdf|*.pptx|";
+                // 1) 지원할 파일 확장자 목록
+                ofd.Filter =
+                    "지원되는 파일 (*.pdf;*.pptx)|*.pdf;*.pptx|" +
+                    "PDF 파일 (*.pdf)|*.pdf|" +
+                    "PowerPoint 파일 (*.pptx)|*.pptx|" +
+                    "모든 파일 (*.*)|*.*";
 
                 ofd.Title = "요약할 파일을 선택하세요";
                 ofd.Multiselect = false;
@@ -44,10 +49,12 @@ namespace AutoSummarizer
                     uploadedFilePath = ofd.FileName;
                     extractedText = string.Empty;
                     txt_FileName.Text = Path.GetFileName(uploadedFilePath);
-                    MessageBox.Show($"파일이 업로드 되었습니다: \n{uploadedFilePath}", "업로드 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"파일이 업로드 되었습니다:\n{uploadedFilePath}",
+                                    "업로드 완료", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
+
         private string TempConvertToPdf(string summarized_text)
         {   
             if (string.IsNullOrWhiteSpace(summarized_text)) 
@@ -85,7 +92,8 @@ namespace AutoSummarizer
                 using (ProgressDialog progressDialog = new ProgressDialog())
                 {   
                     progressDialog.Show();
-                    string openai_KEY = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
+                    //string openai_KEY = Environment.GetEnvironmentVariable("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");
+                    string openai_KEY = "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"; 
                     var chatService = new ChatService(openai_KEY, model: "gpt-4o-mini");
                     var summarizer = new PartialSummarizer(chatService);
 
