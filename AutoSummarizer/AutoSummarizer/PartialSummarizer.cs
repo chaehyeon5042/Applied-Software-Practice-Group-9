@@ -27,7 +27,7 @@ namespace AutoSummarizer
         /// </summary>
         public async Task<List<string>> SummarizeChunksStudy(List<string> chunks)
         {
-            var chatService = new ChatService("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", model: "gpt-4o-mini");
+            var chatService = new ChatService("OPENAI_API_KEY", model: "gpt-4o-mini");
 
 
             var partials = new List<string>();
